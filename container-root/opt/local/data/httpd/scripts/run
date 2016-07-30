@@ -1,0 +1,6 @@
+#!/bin/bash
+echo -e "sourcing $SCRIPTS_DIR"
+for VAR in $(find ${SCRIPTS_DIR} -type f -name "*.sh"); do echo -e "sourcing $VAR"; source $VAR; done;
+echo 'Running Start'
+start
+tail -f /var/log/httpd/the-tail-file
