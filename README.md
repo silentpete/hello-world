@@ -1,5 +1,5 @@
 # hello-world
-git hub walk through
+idea given from initial git hub project, turned into an apache container...
 
 ## First Project on GitHub
 Blah Blah Blah...
