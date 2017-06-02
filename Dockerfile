@@ -1,8 +1,8 @@
-FROM centos:7.2.1511
+FROM centos:7.3.1611
 
 MAINTAINER silentpete
 
-# updated Apache container with SSL/TLS and basic packages 
+# updated Apache container with SSL/TLS and basic packages
 RUN \
   yum makecache fast && \
   yum -y update && \
@@ -26,7 +26,7 @@ ENV \
 # Triciary ENVs
 ENV \
   HTTPD_CONF_FILE=$HTTPD_CONF_DIR/httpd.conf
-  
-COPY container-root/ /
+
+COPY root/ /
 
 CMD /opt/local/data/httpd/scripts/run

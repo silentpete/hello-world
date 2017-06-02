@@ -1,0 +1,30 @@
+#!/bin/bash
+
+function info () {
+  echo -e "\e[32mINFO $1\e[0m"
+}
+
+function warn () {
+  echo -e "\e[33mWARN $1\e[0m"
+}
+
+function error () {
+  echo -e "\e[31mERROR $1\e[0m"
+}
+
+info "sourcing $SCRIPTS_DIR"
+for VAR in $(find ${SCRIPTS_DIR} -type f -name "*.sh"); do info "sourcing $VAR"; source $VAR; done;
+
+# Insert Functions
+adjust_httpd_conf_servername
+
+# Last function to run should be starting httpd
+start
+
+function shutdown () {
+  source ${FUNCTIONS_D}/start_services.sh
+  stop
+}
+
+trap 'shutdown' SIGTERM
+while true; do read; done;
