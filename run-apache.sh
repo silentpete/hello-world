@@ -1,9 +1,8 @@
 #!/bin/bash
 docker run \
-  -d -i -t \
+  -d -t \
   --hostname=apache \
   --name=apache \
-  # -v path/to/index.html/:/var/www/html/ \
   -p 80:80 \
-  -m 512m \
+  -m 64m \
   apache:latest
