@@ -26,7 +26,7 @@ Docker should be installed.
 ### Adjustments
 Can add a volume mount with in the `run-apache.sh` script to get localized index.html to display
 ```
--v path/to/index.html/:/var/www/html/
+-v path/to/<index.html dir>:/var/www/html/
 ```
 
 ## Acknowledgments
