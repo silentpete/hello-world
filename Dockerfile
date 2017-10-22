@@ -1,17 +1,14 @@
-FROM centos:7.3.1611
+FROM centos:7.4.1708
 
-MAINTAINER silentpete
+LABEL \
+  maintainer=silentpete
 
 # updated Apache container with SSL/TLS and basic packages
 RUN \
   yum makecache fast && \
-  yum -y update && \
   yum -y install \
     httpd \
-    mod_ssl \
-    ruby \
-    ruby-devel \
-    vim  && \
+    mod_ssl && \
   yum clean all
 
 # Primary ENVs

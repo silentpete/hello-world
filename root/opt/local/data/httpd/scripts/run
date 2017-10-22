@@ -22,7 +22,7 @@ adjust_httpd_conf_servername
 start
 
 function shutdown () {
-  source ${FUNCTIONS_D}/start_services.sh
+  source ${SCRIPTS_DIR}/start_services.sh
   stop
 }
 
