@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-echo -e "\e[32mINFO sourcing files in $SCRIPTS_DIR\e[0m"
 for VAR in $(find ${SCRIPTS_DIR} -type f -name "*.sh"); do echo -e "\e[32mINFO sourcing $VAR\e[0m"; source $VAR; done;
 
 # Run a Function

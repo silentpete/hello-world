@@ -14,8 +14,10 @@ function error () {
 
 function adjust_httpd_conf_servername () {
   if [[ ${SERVERNAME} ]]; then
+    info "adding ${SERVERNAME} to ${http_conf_filepath}"
     sed -i 's|#ServerName.*|ServerName $SERVERNAME|' $http_conf_filepath
   else
+    info "adding ${HOSTNAME} to ${http_conf_filepath}"
     sed -i 's|#ServerName.*|ServerName ${HOSTNAME}|' $http_conf_filepath
   fi
 }
