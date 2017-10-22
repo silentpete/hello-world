@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
 function info () {
   echo -e "\e[32mINFO $1\e[0m"
 }
@@ -9,6 +10,15 @@ function warn () {
 
 function error () {
   echo -e "\e[31mERROR $1\e[0m"
+}
+
+function adjust_httpd_conf_servername () {
+  http_conf_filepath="/etc/httpd/conf/httpd.conf"
+  if [[ ${SERVERNAME} ]]; then
+    sed -i 's|#ServerName.*|ServerName $SERVERNAME|' $http_conf_filepath
+  else
+    sed -i 's|#ServerName.*|ServerName ${HOSTNAME}|' $http_conf_filepath
+  fi
 }
 
 function start_httpd () {
@@ -31,7 +41,7 @@ function start_httpd () {
 
 function stop_httpd () {
   info "shutting down httpd"
-  httpd stop
+  httpd -k stop
   if [[ $(ps -ef | grep "httpd -k start" | grep -c apache) == 0 ]]; then
     info "apache stopped"
     exit 0

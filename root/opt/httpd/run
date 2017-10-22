@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+echo -e "\e[32mINFO sourcing $SCRIPTS_DIR\e[0m"
+for VAR in $(find ${SCRIPTS_DIR} -type f -name "*.sh"); do echo -e "\e[32mINFO sourcing $VAR\e[0m"; source $VAR; done;
+
+# Run a Function
+adjust_httpd_conf_servername
+
+# Last function to run should be starting httpd
+start
+
+function shutdown () {
+  stop
+}
+
+trap 'shutdown' SIGTERM
+while true; do read; done;

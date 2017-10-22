@@ -1,8 +1,9 @@
-#!/bin/bash
+#!/usr/bin/env bash
 docker run \
   -d -t \
-  --hostname=apache \
   --name=apache \
-  -p 80:80 \
+  --hostname=apache \
+  --rm \
+  -p 8080:80 \
   -m 64m \
   apache:latest
