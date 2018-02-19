@@ -1,6 +1,6 @@
 # hello-world
 
-Idea given from initial git hub project recommendatoin, turned into an apache container.
+Idea given from initial git hub project recommendation, turned into an apache container.
 
 ## First Project on GitHub
 Blah Blah Blah...
