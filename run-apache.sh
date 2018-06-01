@@ -11,6 +11,6 @@ docker run \
   --name=${1} \
   --hostname=${1} \
   --rm \
-  -p 8080:80 \
+  -p 8000:80 \
   -m 64m \
   apache:latest
